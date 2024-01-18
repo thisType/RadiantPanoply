@@ -1,0 +1,29 @@
+﻿
+<article class="artdisplay">
+
+    <p>
+        <span  class="material-symbols-outlined">
+            navigate_next
+        </span>
+    </p>
+    <p><img src="@one.Img" width="400" height="350" /> </p> 
+
+    <p>@one.Name</p>
+    <p style="color:#492477"> @one.category</p>
+    <p >
+        <span style="font-weight:bold;">Starting Price:<br />@one.StartingPrice .ksh</span> <span  title="available"style="color:#40AB65;" class="material-symbols-outlined">
+            event_available
+        </span>
+    </p>
+</article>
+
+
+
+@code {
+
+    [Parameter]
+    public DisplayArt one { get; set; }
+
+
+
+}

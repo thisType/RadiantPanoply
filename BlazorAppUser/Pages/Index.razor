@@ -1,0 +1,77 @@
+﻿@page "/"
+
+<TopAbout></TopAbout>
+
+
+<section class="top">
+
+  <p> <span class="radiant"> RADIANT</span>   <span> <a class="login" href="account">Login </a><a href="login"  class="signup">Sign-up</a> </span></p>
+
+  <p class="search">    <input type="search" placeholder="search" @bind-value="@searcharts"/></p>
+</section>
+<section class="room">
+
+    @if(arts.Count == 0)
+    {
+        
+        <p>No items!Come back tomorrow</p>
+
+
+    } else
+    {
+
+
+        @foreach( var art in arts)
+        {
+            
+            <SingleArt  one="art"></SingleArt>
+
+
+
+        }
+
+
+
+
+
+    }
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+@code {
+    List<DisplayArt> arts = new List<DisplayArt>();
+
+    public string searcharts { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        DisplayArt one = new DisplayArt();
+        one.Name = "The Eye of Horis";
+        one.StartingPrice = 104556;
+        one.Img = "https://storage.googleapis.com/pod_public/1300/151757.jpg";
+        one.category = "painting";
+        arts.Add(one);
+
+        DisplayArt two = new DisplayArt();
+        two.Name = "African Water Bearer";
+        two.StartingPrice = 40000;
+        two.category = "painting";
+        one.Img = "https://livingcanvas.co.za/wp-content/uploads/VEN_503108_Living_Canvas_PHOTO_canvas-wall-art-south-africa_livingcanvas.jpg";
+
+        arts.Add(two);
+
+
+    }
+}
